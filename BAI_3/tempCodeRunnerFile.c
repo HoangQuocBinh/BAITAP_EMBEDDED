@@ -1,0 +1,2 @@
+  // Lowcase(arr);
+    // Upcase(arr); 

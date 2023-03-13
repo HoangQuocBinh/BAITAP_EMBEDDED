@@ -20,10 +20,10 @@
   + Phạm vi truy cập public cho phép các object tự do truy cập vào các property trong public.
   + Phạm vi truy cập private sẽ không cho các object truy cập vào nó mà các property được khai báo trong private chỉ được truy cập bên trong class.
   + Các tính chất trong OOP:
-    > Tính đóng gói (Encapsulation):
-        >>Tính đóng gói có ý nghĩa không cho phép người sử dụng cái object có thể thay đổi các trạng thái nội tại của đối tượng, mà chỉ có thể thay đổi thông qua                 method
-        >>Khi thay đổi thông qua method, chúng ta có thể kiểm soát giá trị thay đổi 
-    > Tính kế thừa (Inheritance):
+    --Tính đóng gói (Encapsulation):
+        -+Tính đóng gói có ý nghĩa không cho phép người sử dụng cái object có thể thay đổi các trạng thái nội tại của đối tượng, mà chỉ có thể thay đổi thông qua                 method
+        -+Khi thay đổi thông qua method, chúng ta có thể kiểm soát giá trị thay đổi 
+    --Tính kế thừa (Inheritance):
         >> Một class có thể kế thừa các thuộc tính của 1 class khác.
         >> Class kế thừa thuộc tính được gọi là class con (subclass), Class được kế thừa gọi là class cha (superClass)
         >> Các property hoặc method nằm trong phạm vi private sẽ không được kế thừa ở class con.

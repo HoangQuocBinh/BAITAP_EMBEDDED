@@ -22,21 +22,16 @@
   + Các tính chất trong OOP:
   
     > Tính đóng gói (Encapsulation):
-    
-        >> Tính đóng gói có ý nghĩa không cho phép người sử dụng cái object có thể thay đổi các trạng thái nội tại của đối tượng, mà chỉ có thể thay đổi thông qua method
-        
-        >> Khi thay đổi thông qua method, chúng ta có thể kiểm soát giá trị thay đổi 
-    
+        >>Tính đóng gói có ý nghĩa không cho phép người sử dụng cái object có thể thay đổi các trạng thái nội tại của đối tượng, mà chỉ có thể thay đổi thông qua                 method
+        >>Khi thay đổi thông qua method, chúng ta có thể kiểm soát giá trị thay đổi 
     > Tính kế thừa (Inheritance):
         >> Một class có thể kế thừa các thuộc tính của 1 class khác.
         >> Class kế thừa thuộc tính được gọi là class con (subclass), Class được kế thừa gọi là class cha (superClass)
         >> Các property hoặc method nằm trong phạm vi private sẽ không được kế thừa ở class con.
-        >> Constructor của class con sẽ luôn được gọi tới class cha. Nếu constructor ở class con không chỉ rõ cần gọi tới Constructor nào của class cha thì class con sẽ luôn gọi tới Constructor mặc định của class cha.
+        >> Constructor của class con sẽ luôn được gọi tới class cha. Nếu constructor ở class con không chỉ rõ cần gọi tới Constructor nào của class cha thì class con              sẽ luôn gọi tới Constructor mặc định của class cha.
         >> Khi khai báo method ở class con trùng với method được khai báo ở class cha thì method ở class con sẽ ghi đè method ở class cha.
-     
-     >> Tính đa hình (Polymorphism):
+     >Tính đa hình (Polymorphism):
         >> Tính đa hình cho phép trong cùng 1 class có thể đưa ra nhiều method có cùng tên nhưng khác nhau về các input parameter hoặc kiểu dữ liệu trả về
-     
-     >> Tính trừu tượng (Abstraction) (Em chưa hiểu cách thực hiện tính chất này):
+     > Tính trừu tượng (Abstraction) (Em chưa hiểu cách thực hiện tính chất này):
         >> Tính chất này giúp bỏ qua sự phức tạp bên trong method mà chỉ quan tâm đến kết quả đạt được.
       

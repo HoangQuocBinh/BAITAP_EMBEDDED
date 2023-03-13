@@ -24,7 +24,7 @@
         	+* Khi thay đổi thông qua method, chúng ta có thể kiểm soát giá trị thay đổi 
 
          * Tính kế thừa (Inheritance):
-       	+* Một class có thể kế thừa các thuộc tính của 1 class khác.
+       	    +* Một class có thể kế thừa các thuộc tính của 1 class khác.
         	+* Class kế thừa thuộc tính được gọi là class con (subclass), Class được kế thừa gọi là class cha (superClass)
         	+* Các property hoặc method nằm trong phạm vi private sẽ không được kế thừa ở class con.
         	+* Constructor của class con sẽ luôn được gọi tới class cha. Nếu constructor ở class con không chỉ rõ cần gọi tới Constructor nào của class cha thì class con sẽ luôn gọi tới Constructor mặc định của class cha.

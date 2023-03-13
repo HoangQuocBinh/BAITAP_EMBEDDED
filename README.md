@@ -20,7 +20,6 @@
   + Phạm vi truy cập public cho phép các object tự do truy cập vào các property trong public.
   + Phạm vi truy cập private sẽ không cho các object truy cập vào nó mà các property được khai báo trong private chỉ được truy cập bên trong class.
   + Các tính chất trong OOP:
-  
     > Tính đóng gói (Encapsulation):
         >>Tính đóng gói có ý nghĩa không cho phép người sử dụng cái object có thể thay đổi các trạng thái nội tại của đối tượng, mà chỉ có thể thay đổi thông qua                 method
         >>Khi thay đổi thông qua method, chúng ta có thể kiểm soát giá trị thay đổi 

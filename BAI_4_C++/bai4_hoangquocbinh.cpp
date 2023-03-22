@@ -207,6 +207,7 @@ void Menu::HienThiDanhSachLenh(){
     printf("NHAP EXIT DE THOAT");
 }
 
+
 void Menu::ThemSinhVien(){
     Sinhvien sv;
     char chuoiduocnhap[50];
@@ -215,8 +216,6 @@ void Menu::ThemSinhVien(){
         /* code */
     // char *chuoiduocnhap = (char*)malloc(50 * sizeof(char));
     
-    uint8_t cnt = 0;
-    uint8_t _is_scanf = 0;
     printf("\nTHEM SINH VIEN \t NHAP EXIT DE THOAT\n");
     printf("NHAP TEN: ");
     scanf("%s", chuoiduocnhap);

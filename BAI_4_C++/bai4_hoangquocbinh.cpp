@@ -142,10 +142,10 @@ private:
     vector<Sinhvien> danhsachSinhVien;
     static uint8_t _SoSinhVien; //KIEM TRA SO SINH VIEN DE THEM ID
     int _Kiemtra_GioiTinh(const char* gioitinh);//KIEM TRA NHAP GIOI TINH
-    int _Kiemtra_Diem(char *str);// KIEM TRA KHI NHAP DIEM
+    int _Kiemtra_Diem(const char *str);// KIEM TRA KHI NHAP DIEM
 public:
-    int _Kiemtra_Exit(char* str); //KIEM TRA KHI MUON EXIT
-    int _Kiemtra_chuso(char *str);//KIEM TRA SO
+    int _Kiemtra_Exit(const char* str); //KIEM TRA KHI MUON EXIT
+    int _Kiemtra_chuso(const char *str);//KIEM TRA SO
     void HienThiDanhSachLenh();
     void ThemSinhVien();
     void CapNhatSinhVienTheoID();
@@ -167,7 +167,7 @@ int Menu::_Kiemtra_GioiTinh(const char* gioitinh){
     }
 }
 
-int Menu::_Kiemtra_Diem(char *str){
+int Menu::_Kiemtra_Diem(const char *str){
     double Diem = 0;
     sscanf(str, "%lf", &Diem);
     if(Diem < 0 || Diem > 10){
@@ -179,13 +179,13 @@ int Menu::_Kiemtra_Diem(char *str){
     }
 }
 
-int Menu::_Kiemtra_Exit(char* str){
+int Menu::_Kiemtra_Exit(const char* str){
     if(strcmp(((const char*)"EXIT"), str) == 0)
         return 1;
     return 0;
 }
 
-int Menu::_Kiemtra_chuso(char *str){
+int Menu::_Kiemtra_chuso(const char *str){
     for(int i=0; i< strlen(str); i++){
         // if(str[i] == '\0') break;
         if(isdigit(str[i]) == 0)

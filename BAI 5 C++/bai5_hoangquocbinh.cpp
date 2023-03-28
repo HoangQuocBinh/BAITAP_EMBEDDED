@@ -5,7 +5,6 @@
 * Description: This is file for restaurant management
 */
 
-
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
@@ -279,8 +278,6 @@ void Tables::set_ListDish(Dish dish, const uint8_t command){
     default:
         break;
     }
-    // if(command == 1) _list_Dish.push_back(dish);
-    // else _list_Dish.clear();
 }
 
 /*
@@ -841,6 +838,7 @@ void Menu::show_ListCommandMenu(){
     printf("\nDANH SACH LENH MENU:\n");
     printf("NHAP 1: QUAN LI\n");
     printf("NHAP 2: NHAN VIEN\n");
+    printf("NHAP 0: THOAT\n");
 }
 
 /*
@@ -973,9 +971,7 @@ void Menu::staff(){
             is_have_id = 0;
             continue;
         }
-        // if(cmd == 1) sf.order((const uint8_t)id_table);
-        // else if(cmd == 2) sf.show_ListDishes(id_table);
-        // else sf.caculated(id_table);
+
         switch (cmd)
         {
         case BACK:
@@ -1006,8 +1002,6 @@ void Menu::staff(){
 int main(int argc, char const *argv[])
 {
     /* code */
-    Manager mn;
-    Staff sf;
     Menu menu;
     uint8_t command;
     enum Command{
@@ -1015,8 +1009,7 @@ int main(int argc, char const *argv[])
         MANAGER,
         STAFF
     };
-    static uint8_t id_table = 1;
-    uint8_t so;
+
     while(1){
         // printf("command: %d\n", command);
         menu.show_ListCommandMenu();
@@ -1025,9 +1018,9 @@ int main(int argc, char const *argv[])
         switch (command)
         {
         case BACK:
-            /* code */
             return 0;
             break;
+
         case MANAGER:
             menu.manager();
             break;
@@ -1036,6 +1029,7 @@ int main(int argc, char const *argv[])
             menu.staff();
             break;
         default:
+            printf("KHONG CO LENH NAY\n");
             break;
         }
 

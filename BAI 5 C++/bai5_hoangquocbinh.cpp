@@ -87,7 +87,7 @@ Dish::Dish(const uint8_t id, const char* namedish, const double prices){
 * Input:
 *   id - ID of dish
 * Output:
-*   Not returns value
+*   return: None
 */
 void Dish::set_ID(const uint8_t id){
     this->_id = id;
@@ -100,7 +100,7 @@ void Dish::set_ID(const uint8_t id){
 * Input:
 *   namedish - Name of dish
 * Output:
-*   Not returns value
+*   return: None
 */
 void Dish::set_NameDish(const char* namedish){
     // this->_nameofDish = namedish;
@@ -114,7 +114,7 @@ void Dish::set_NameDish(const char* namedish){
 * Input:
 *   prices - price of dish
 * Output:
-*   Not returns value
+*   return: None
 */
 void Dish::set_Prices(const double prices){
     this->_prices = prices;
@@ -127,7 +127,7 @@ void Dish::set_Prices(const double prices){
 * Input:
 *   prices - price of dish
 * Output:
-*   Not returns value
+*   return: None
 */
 void Dish::set_NumofDish(uint8_t numberofdish){
     this->_numofDish = numberofdish;
@@ -232,7 +232,7 @@ Tables::Tables(const uint8_t id, const uint8_t status){
 * Input:
 *   id - ID of table
 * Output:
-*   Not return
+*   return: None
 */
 void Tables::set_ID(const uint8_t id){
     this->_id = id;
@@ -245,7 +245,7 @@ void Tables::set_ID(const uint8_t id){
 * Input:
 *   status - status of table
 * Output:
-*   Not return
+*   return: None
 */
 void Tables::set_Status(const uint8_t status){
     this->_status = status;
@@ -259,7 +259,7 @@ void Tables::set_Status(const uint8_t status){
 *   dish - dish of table
 *   command - value for set or clear a list
 * Output:
-*   Not return
+*   return: None
 */
 void Tables::set_ListDish(Dish dish, const uint8_t command){
     enum Command{
@@ -355,7 +355,7 @@ vector<Dish> Manager::_list_Dish;
 * Input:
 *   Dont have input parameters
 * Output:
-*   No return
+*   return: None
 */
 void Manager::set_NumberTables(){
     uint8_t scanf_numTable = 0; //LUU GIA TRI NHAP TU BAN PHIM
@@ -383,7 +383,7 @@ void Manager::set_NumberTables(){
 * Input:
 *   Dont have input parameters
 * Output:
-*   No return
+*   return: None
 */
 void Manager::add_Dish(){
     char namedish[50]; //GIA TRI LUU TEN MON AN
@@ -410,7 +410,7 @@ void Manager::add_Dish(){
 * Input:
 *   Dont have input parameters
 * Output:
-*   No return
+*   return: None
 */
 void Manager::update_Dish(){
 
@@ -504,7 +504,7 @@ void Manager::update_Dish(){
 * Input:
 *   Dont have input parameters
 * Output:
-*   No return
+*   return: None
 */
 void Manager::remove_Dish(){
 
@@ -565,7 +565,7 @@ uint8_t Manager::show_Dishes(){
 *   dish - dish which is orderd
 *   command - value that set 1 when want to order and 0 when want to caculated
 * Output:
-*   No return
+*   return: None
 */
 void Manager::set_Table(const uint8_t stt_id, Dish dish, const uint8_t command){
 
@@ -712,7 +712,7 @@ uint8_t Staff::check_ID_Table(uint8_t id_table){
 * Input:
 *   stt_id - No. id of table in list
 * Output:
-*   Not return 
+*   return: None 
 */
 void Staff::order(const uint8_t stt_id){
     static uint8_t id; //LUU ID MON AN
@@ -752,7 +752,7 @@ void Staff::order(const uint8_t stt_id){
 * Input:
 *   stt_id - No. id of table in list
 * Output:
-*   Not return 
+*   return: None 
 */
 void Staff::show_ListDishes(const uint8_t stt_id){
 
@@ -780,7 +780,7 @@ void Staff::show_ListDishes(const uint8_t stt_id){
 * Input:
 *   stt_id - No. of id table in list
 * Output:
-*   Not return 
+*   return: None 
 */
 void Staff::caculated(const uint8_t stt_id){
 
@@ -832,7 +832,7 @@ public:
 * Input:
 *   Dont have input parameters
 * Output:
-*   Not return 
+*   return: None 
 */
 void Menu::show_ListCommandMenu(){
     printf("\nDANH SACH LENH MENU:\n");
@@ -848,7 +848,7 @@ void Menu::show_ListCommandMenu(){
 * Input:
 *   Dont have input parameters
 * Output:
-*   Not return 
+*   return: None 
 */
 void Menu::show_ListCommandManager(){
     printf("\nDANH SACH LENH QUAN LI:\n");
@@ -867,7 +867,7 @@ void Menu::show_ListCommandManager(){
 * Input:
 *   Dont have input parameters
 * Output:
-*   Not return 
+*   return: None 
 */
 void Menu::show_ListCommandTables(){
     printf("\nDANH SACH LENH BAN:\n");
@@ -884,7 +884,7 @@ void Menu::show_ListCommandTables(){
 * Input:
 *   Dont have input parameters
 * Output:
-*   Not return 
+*   return: None
 */
 void Menu::manager(){
     uint8_t scanf_cmd;
@@ -940,7 +940,7 @@ void Menu::manager(){
 * Input:
 *   Dont have input parameters
 * Output:
-*   Not return 
+*   return: None 
 */
 void Menu::staff(){
     static uint8_t id_table = 100; //LUU GIA TRI ID BAN

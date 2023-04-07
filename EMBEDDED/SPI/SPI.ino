@@ -1,4 +1,11 @@
 
+/*
+* File: SPI.ino
+* Author: HOANG QUOC BINH
+* Date: 07/04/2023
+* Description: This is file for SPI 
+*/
+
 /***********Master**************/
 #define SCK_Mater 25
 #define	MOSI_Master 26
@@ -26,6 +33,14 @@ enum READWRITE{
 	WRITE
 };
 
+/*
+* Function: Read_SPI
+* Description: This function use for handle external interrupt
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: None
+*/
 void IRAM_ATTR Read_SPI(){
 	if(digitalRead(SS_Slave) == 1) return;
 	number_slave_read <<= 1;
@@ -64,20 +79,28 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   
-  if(nums_byte_read == 8){
+	if(nums_byte_read == 8){
 	  Serial.printf("Number slave read : %d\n", number_slave_read);
 	  Serial.printf("Number master read : %d\n", number_master_read);
 	  nums_byte_read = 0;
 	  nums_byte_slave_send = 0;
 	  digitalWrite(MISO_Slave, ((num_slave_send >> (7-nums_byte_slave_send))&0x01) ? HIGH : LOW);
 	  ++nums_byte_slave_send;
-  }
-  if(nums_byte_read == 0){
+	}
+	if(nums_byte_read == 0){
 	  number_master_read = SPI_Transmit_Receive(num_master_send);
-  }
+	}
 	delay(2000);
 }
 
+/*
+* Function: Clock
+* Description: This function use for clock of SPI 
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: None
+*/
 void Clock(){
 	digitalWrite(SCK_Mater, HIGH);
 	asm volatile("nop"::);
@@ -85,6 +108,14 @@ void Clock(){
 	asm volatile("nop"::);
 }
 
+/*
+* Function: SPI_Transmit_Receive
+* Description: This function use for read and send data via SPI
+* Input:
+*   data - data want to send
+* Output:
+*   return: data read via SPI
+*/
 uint8_t SPI_Transmit_Receive(uint8_t data){
 	digitalWrite(SS_Master, LOW);
 	uint8_t _data = 0x00;

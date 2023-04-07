@@ -1,10 +1,16 @@
 
+/*
+* File: Timer_GPIO.ino
+* Author: HOANG QUOC BINH
+* Date: 29/03/2023
+* Description: This is file for Timer and GPIO 
+*/
+
 //---------------Variable for doccambien function----------------//
-#define socambien 10
-int lastButtonState[socambien];
-int lastCBState[socambien]; 
-int tatcathungday = 0;
-unsigned long lastDebounceTime[socambien] = {0,0,0,0,0};
+#define num_sensor 10
+int lastButtonState[num_sensor];
+int lastCBState[num_sensor]; 
+unsigned long lastDebounceTime[num_sensor] = {0,0,0,0,0};
 
 #define LED 13
 #define BUTTON 7
@@ -26,7 +32,14 @@ void loop() {
 	else ui8_is_not_run_led = 0;
 }
 
-
+/*
+* Function: initInterrupt_timer
+* Description: This function use for init timer  
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: None
+*/
 void initInterrupt_timer(){
     noInterrupts();
     cli(); //Stop all Interrupt
@@ -55,17 +68,34 @@ void initInterrupt_timer(){
     
 }
 
+/*
+* Function: TIMER1_OVF_vect
+* Description: This function use for handle timer interrupt 
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: None
+*/
 ISR(TIMER1_OVF_vect){  //ISR(Vector_name) Vector_name must be right name of interrupt. TIMER1_OVF_vect is Overflow interrupt Timer1
     TCNT1 = 53036;
 	if(ui8_is_not_run_led == 1) return;
 	digitalWrite(LED, !digitalRead(LED));
 }
 
+/*
+* Function: Read_Button
+* Description: This function use for read button 
+* Input:
+*   pin - pin button
+*	index - index button in array
+* Output:
+*   return: state of button
+*/
 int Read_Button(int pin, int index){
    int reading = digitalRead(pin);
 
   if (reading != lastButtonState[index]) {		
-			lastDebounceTime[index] = millis();	
+		lastDebounceTime[index] = millis();	
   }
 
   if ((millis() - lastDebounceTime[index]) > 100) {

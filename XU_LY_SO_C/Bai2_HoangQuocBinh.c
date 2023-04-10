@@ -1,3 +1,10 @@
+/*
+* File: Bai1_HoangQuocBinh.c
+* Author: HOANG QUOC BINH
+* Date: 06/03/2023
+* Description: This is file for number handling
+*/
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -8,6 +15,16 @@ uint32_t number; //BIẾN LƯU SỐ ĐƯỢC NHẬP TỪ BÀN PHÍM
 uint8_t has_zero = 0; //BIẾN ĐỂ SET LÊN 1 KHI CÓ ZERO
 
 /**********************HÀM ĐỌC SỐ**********************/
+
+/*
+* Function: printNum
+* Description: This function use for print number
+* Input:
+*   num - input number
+*   vitri - index number in array
+* Output:
+*   return: none
+*/
 void printNum(uint8_t num, uint8_t vitri){  
     switch (num)
     {
@@ -50,6 +67,16 @@ void printNum(uint8_t num, uint8_t vitri){
 }
 
 /******************HÀM ĐỌC ĐƠN VỊ******************/
+
+/*
+* Function: printNum
+* Description: This function use for print unit
+* Input:
+*   num - input number
+*   vitri - index number in array
+* Output:
+*   return: none
+*/
 void printUnit(uint8_t num, uint8_t vitri){
     switch (vitri % 3)  // XÉT THEO TỪNG VỊ TRÍ 
     {
@@ -74,6 +101,15 @@ void printUnit(uint8_t num, uint8_t vitri){
 }
 
 /**************************HÀM ĐỌC SỐ**************************/
+
+/*
+* Function: printNum
+* Description: This function use for read number
+* Input:
+*   num - input number
+* Output:
+*   return: none
+*/
 void readNumber(uint32_t num){
     uint8_t size = 1; //SỐ LƯỢNG CHỮ SỐ TRONG SỐ ĐƯỢC GHI VÀO
     uint8_t *ptr = (uint8_t *)malloc(size*sizeof(uint8_t)); //CẤP PHÁT ĐỘNG MẢNG ĐỂ LƯU TỪNG CHỮ SỐ 

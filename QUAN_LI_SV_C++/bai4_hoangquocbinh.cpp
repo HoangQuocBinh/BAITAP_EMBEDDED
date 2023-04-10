@@ -1,3 +1,10 @@
+/*
+* File: bai4_hoangquocbinh.cpp
+* Author: HOANG QUOC BINH
+* Date: 24/03/2023
+* Description: This is file for student management
+*/
+
 #include <stdio.h>
 // #include <cstdlib>
 #include <string.h>
@@ -8,7 +15,24 @@
 
 using namespace std;
 
+#define ENTER_INFORMATION(thongtin, dinhdang, noidung, dieukien)\
+    do\
+    {\
+        printf(thongtin);\
+        scanf(dinhdang, noidung);\
+        if(checkExit(noidung) == 1)\
+            return;\
+    }while(dieukien);
 
+#define SHOW_INFORMATION(index, list_student)\
+    printf("\nID\t TEN\t\t GIOITINH\t TUOI\t TOAN\t LY\t HOA\t GPA\t HOCLUC\n");                                                                                                                                                               \
+    for(int index = 0; index < list_student.size(); index++){                                                                                                                                                                                   \
+        printf("%d\t %s\t\t %s\t\t %d\t %.2lf\t %.2lf\t %.2lf\t %.2lf\t %s\n", list_student[index].getID(), list_student[index].getName(), list_student[index].getSex(),                                                                          \
+        list_student[index].getAge(), list_student[index].getMarkMath(), list_student[index].getMarkPhysical(), list_student[index].getMarkChemical(), list_student[index].getAverageMark(), list_student[index].getStudentAbility());   \
+    }                                                                                                                                                                                                                                               \
+    printf("\n");
+
+/********************************************Class Student*****************************************/
 class Student
 {
 private:
@@ -25,80 +49,219 @@ private:
 
 public:
     void setID(uint8_t _id);
-    void set_Name(const char *_student_name);
-    void set_Sex(const char *_student_sex);
-    void set_Age(uint8_t Student_Age);
-    void set_Mark_Math(double _math_mark);
-    void set_Mark_Physical(double _physical_mark);
-    void set_Mark_Chemical(double _chemical_mark);
+    void setName(const char *_student_name);
+    void setSex(const char *_student_sex);
+    void setAge(uint8_t Student_Age);
+    void setMarkMath(double _math_mark);
+    void setMarkPhysical(double _physical_mark);
+    void setMarkChemical(double _chemical_mark);
     
     uint8_t getID();
-    char *get_Name();
-    char *get_Sex();
-    uint8_t get_Age();
-    double get_Mark_Math();
-    double get_Mark_Physical();
-    double get_Mark_Chemical();
-    double get_Average_Mark();
-    char *get_Student_Ability();
+    char *getName();
+    char *getSex();
+    uint8_t getAge();
+    double getMarkMath();
+    double getMarkPhysical();
+    double getMarkChemical();
+    double getAverageMark();
+    char *getStudentAbility();
 
 };
 
+/*
+* Class: Student
+* Function: setID
+* Description: This function use for set ID of a Student
+* Input:
+*   _id - ID of Student
+* Output:
+*   return: None
+*/
 void Student::setID(uint8_t _id){
     this->_id = _id;
 }
 
-void Student::set_Name(const char *_student_name){
+/*
+* Class: Student
+* Function: setName
+* Description: This function use for set name of a Student
+* Input:
+*   _student_name - name of Student
+* Output:
+*   return: None
+*/
+void Student::setName(const char *_student_name){
     strcpy(this->_student_name, _student_name);
 }
 
-void Student::set_Sex(const char *_student_sex){
+/*
+* Class: Student
+* Function: setSex
+* Description: This function use for set sex of a Student
+* Input:
+*   _student_sex - sex of Student
+* Output:
+*   return: None
+*/
+void Student::setSex(const char *_student_sex){
     strcpy(this->_student_sex, _student_sex);
 }
 
-void Student::set_Age(uint8_t _student_age){
+/*
+* Class: Student
+* Function: setAge
+* Description: This function use for set age of a Student
+* Input:
+*   _student_age - age of Student
+* Output:
+*   return: None
+*/
+void Student::setAge(uint8_t _student_age){
     this->_student_age = _student_age;
 }
 
-void Student::set_Mark_Math(double _math_mark){
+/*
+* Class: Student
+* Function: setMarkMath
+* Description: This function use for set mark of Math
+* Input:
+*   _math_mark - mark of Math
+* Output:
+*   return: None
+*/
+void Student::setMarkMath(double _math_mark){
     this->_math_mark = _math_mark;
 
 }
 
-void Student::set_Mark_Physical(double _physical_mark){
+/*
+* Class: Student
+* Function: setMarkPhysical
+* Description: This function use for set mark of Physical
+* Input:
+*   _physical_mark - mark of Physical
+* Output:
+*   return: None
+*/
+void Student::setMarkPhysical(double _physical_mark){
   
     this->_physical_mark = _physical_mark;
 }
 
-void Student::set_Mark_Chemical(double _chemical_mark){
+/*
+* Class: Student
+* Function: setMarkChemical
+* Description: This function use for set mark of Chemical
+* Input:
+*   _chemical_mark - mark of Chemical
+* Output:
+*   return: None
+*/
+void Student::setMarkChemical(double _chemical_mark){
         this->_chemical_mark = _chemical_mark;
 }
 
+/*
+* Class: Student
+* Function: getID
+* Description: This function use for get id of student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: ID of Student
+*/
 uint8_t Student::getID(){
     return _id;
 }
 
-char *Student::get_Name(){
+/*
+* Class: Student
+* Function: getName
+* Description: This function use for get name of student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: Name of Student
+*/
+char *Student::getName(){
     return _student_name;
 }
 
-char *Student::get_Sex(){
+/*
+* Class: Student
+* Function: getSex
+* Description: This function use for get sex of student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: Sex of Student
+*/
+char *Student::getSex(){
     return _student_sex;
 }
 
-uint8_t Student::get_Age(){
+/*
+* Class: Student
+* Function: getAge
+* Description: This function use for get age of student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: Age of Student
+*/
+uint8_t Student::getAge(){
     return _student_age;
 }
-double Student::get_Mark_Math(){
+
+/*
+* Class: Student
+* Function: getMarkMath
+* Description: This function use for get mark of Math
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: Mark of Math
+*/
+double Student::getMarkMath(){
     return _math_mark;
 }
-double Student::get_Mark_Physical(){
+
+/*
+* Class: Student
+* Function: getMarkPhysical
+* Description: This function use for get mark of Physical
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: Mark of Physical
+*/
+double Student::getMarkPhysical(){
     return _physical_mark;
 }
-double Student::get_Mark_Chemical(){
+
+/*
+* Class: Student
+* Function: getMarkChemical
+* Description: This function use for get mark of Chemical
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: Mark of Chemical
+*/
+double Student::getMarkChemical(){
     return _chemical_mark;
 }
-double Student::get_Average_Mark(){
+
+/*
+* Class: Student
+* Function: getAverageMark
+* Description: This function use for get average mark
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: Average mark
+*/
+double Student::getAverageMark(){
     if(_math_mark < 0 || _math_mark > 10){
         printf("ERROR! CHUA NHAP DIEM TOAN");
         return -1;
@@ -118,14 +281,23 @@ double Student::get_Average_Mark(){
     return (_average_mark);
 }
 
-char *Student::get_Student_Ability(){
-    if(Student::get_Average_Mark() >= 8){
+/*
+* Class: Student
+* Function: getStudentAbility
+* Description: This function use for get ability of Student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: Ability of Student
+*/
+char *Student::getStudentAbility(){
+    if(Student::getAverageMark() >= 8){
         strcpy(_student_ability, (const char *)"GIOI");
     }
-    else if(Student::get_Average_Mark() >= 6.5){
+    else if(Student::getAverageMark() >= 6.5){
         strcpy(_student_ability, (const char *)"KHA");
     }
-    else if(Student::get_Average_Mark() >= 5){
+    else if(Student::getAverageMark() >= 5){
         strcpy(_student_ability, (const char *)"TRUNG BINH");
     }
     else{
@@ -135,29 +307,39 @@ char *Student::get_Student_Ability(){
 }
 
 
+/*********************************Class Menu********************************/
 class Menu
 {
 private:
     /* data */
     vector<Student> _list_student;
     static uint8_t _num_student; //KIEM TRA SO SINH VIEN DE THEM _id
-    int _Check_Sex(const char* sex);//KIEM TRA NHAP GIOI TINH
-    int _Check_Mark(const char *str);// KIEM TRA KHI NHAP DIEM
+    int _checksex(const char* sex);//KIEM TRA NHAP GIOI TINH
+    int _checkmark(const char *str);// KIEM TRA KHI NHAP DIEM
 public:
-    int Check_Exit(const char* str); //KIEM TRA KHI MUON EXIT
-    int Check_Number(const char *str);//KIEM TRA SO
-    void Show_List_Command();
-    void Add_Student();
-    void Update_Student_By_ID();
-    void Remove_Student();
-    void Search_Student_By_Name();
-    void Sort_List_Student_By_GPA();
-    void Sort_List_Student_By_Name();
-    void Show_List_Student();
+    int checkExit(const char* str); //KIEM TRA KHI MUON EXIT
+    int checkNumber(const char *str);//KIEM TRA SO
+    void showListCommand();
+    void addStudent();
+    void updateStudentByID();
+    void removeStudent();
+    void searchStudentByName();
+    void sortListStudentByGPA();
+    void sortListStudentByName();
+    void showListStudent();
 };
-uint8_t Menu::_num_student = 0;
+uint8_t Menu::_num_student = 0; //KHOI TAO STATIC CLASS
 
-int Menu::_Check_Sex(const char* sex){
+/*
+* Class: Menu
+* Function: _checksex
+* Description: This function use for checking sex of student
+* Input:
+*   sex - input sex of student
+* Output:
+*   return: status valid or not
+*/
+int Menu::_checksex(const char* sex){
     if((strcmp((const char*)"Nam", sex) != 0) && (strcmp((const char*)"Nu", sex) != 0)){
         printf("ERROR! NHAP GIOI TINH KHONG CHINH XAC");
         return 0;
@@ -167,7 +349,16 @@ int Menu::_Check_Sex(const char* sex){
     }
 }
 
-int Menu::_Check_Mark(const char *str){
+/*
+* Class: Menu
+* Function: _checkmark
+* Description: This function use for checking mark of student
+* Input:
+*   str - input mark of student
+* Output:
+*   return: status valid or not
+*/
+int Menu::_checkmark(const char *str){
     double mark = 0;
     sscanf(str, "%lf", &mark);
     if(mark < 0 || mark > 10){
@@ -179,13 +370,31 @@ int Menu::_Check_Mark(const char *str){
     }
 }
 
-int Menu::Check_Exit(const char* str){
+/*
+* Class: Menu
+* Function: checkExit
+* Description: This function use for checking exit command
+* Input:
+*   str - input string command to check
+* Output:
+*   return: status is exit?
+*/
+int Menu::checkExit(const char* str){
     if(strcmp(((const char*)"EXIT"), str) == 0)
         return 1;
     return 0;
 }
 
-int Menu::Check_Number(const char *str){
+/*
+* Class: Menu
+* Function: checkExit
+* Description: This function use for checking number
+* Input:
+*   str - input string number to check
+* Output:
+*   return: status is number or not?
+*/
+int Menu::checkNumber(const char *str){
     for(int i=0; i< strlen(str); i++){
         // if(str[i] == '\0') break;
         if(isdigit(str[i]) == 0)
@@ -194,8 +403,16 @@ int Menu::Check_Number(const char *str){
     return 1;
 }
 
-
-void Menu::Show_List_Command(){
+/*
+* Class: Menu
+* Function: showListCommand
+* Description: This function use for showing list command
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: none
+*/
+void Menu::showListCommand(){
     printf("DANH SACH LENH: \n");
     printf("1. THEM SINH VIEN\n");
     printf("2. CAP NHAT THONG TIN SINH VIEN THEO ID\n");
@@ -207,25 +424,16 @@ void Menu::Show_List_Command(){
     printf("NHAP \"EXIT\" DE THOAT");
 }
 
-#define ENTER_INFORMATION(thongtin, dinhdang, noidung, dieukien)\
-    do\
-    {\
-        printf(thongtin);\
-        scanf(dinhdang, noidung);\
-        if(Check_Exit(noidung) == 1)\
-            return;\
-    }while(dieukien);
-
-#define SHOW_INFORMATION(index, list_student)\
-    printf("\nID\t TEN\t\t GIOITINH\t TUOI\t TOAN\t LY\t HOA\t GPA\t HOCLUC\n");                                                                                                                                                               \
-    for(int index = 0; index < list_student.size(); index++){                                                                                                                                                                                   \
-        printf("%d\t %s\t\t %s\t\t %d\t %.2lf\t %.2lf\t %.2lf\t %.2lf\t %s\n", list_student[index].getID(), list_student[index].get_Name(), list_student[index].get_Sex(),                                                                          \
-        list_student[index].get_Age(), list_student[index].get_Mark_Math(), list_student[index].get_Mark_Physical(), list_student[index].get_Mark_Chemical(), list_student[index].get_Average_Mark(), list_student[index].get_Student_Ability());   \
-    }                                                                                                                                                                                                                                               \
-    printf("\n");
-
-
-void Menu::Add_Student(){
+/*
+* Class: Menu
+* Function: addStudent
+* Description: This function use for adding student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: none
+*/
+void Menu::addStudent(){
     Student sv;
     char scanf_str[50];
     while (1)
@@ -235,30 +443,30 @@ void Menu::Add_Student(){
     
     printf("\nTHEM SINH VIEN \t NHAP \"EXIT\" DE THOAT\n");
     ENTER_INFORMATION("NHAP TEN: ", "%s", scanf_str, 0);
-    sv.set_Name(scanf_str); //SET TEN SINH VIEN
+    sv.setName(scanf_str); //SET TEN SINH VIEN
 
-    ENTER_INFORMATION("NHAP GIOI TINH (Nam/Nu): ", "%s", scanf_str, _Check_Sex(scanf_str) == 0);
-    sv.set_Sex(scanf_str); //SET GIOI TINH
+    ENTER_INFORMATION("NHAP GIOI TINH (Nam/Nu): ", "%s", scanf_str, _checksex(scanf_str) == 0);
+    sv.setSex(scanf_str); //SET GIOI TINH
 
-    ENTER_INFORMATION("NHAP TUOI: ","%s", scanf_str, Check_Number(scanf_str) == 0 || atoi(scanf_str) < 0);
+    ENTER_INFORMATION("NHAP TUOI: ","%s", scanf_str, checkNumber(scanf_str) == 0 || atoi(scanf_str) < 0);
     uint8_t age;
     sscanf(scanf_str, "%d", &age);
-    sv.set_Age(age); //SET TUOI
+    sv.setAge(age); //SET TUOI
 
-    ENTER_INFORMATION("NHAP DIEM TOAN: ","%s", scanf_str, _Check_Mark(scanf_str) == 0);
+    ENTER_INFORMATION("NHAP DIEM TOAN: ","%s", scanf_str, _checkmark(scanf_str) == 0);
     double math_mark = 0;
     sscanf(scanf_str, "%lf", &math_mark); //CHUYEN CHUOI DA NHAP THANH DIEM TOAN
-    sv.set_Mark_Math(math_mark); //SET DIEM TOAN
+    sv.setMarkMath(math_mark); //SET DIEM TOAN
 
-    ENTER_INFORMATION("NHAP DIEM LY: ","%s", scanf_str, _Check_Mark(scanf_str) == 0);
+    ENTER_INFORMATION("NHAP DIEM LY: ","%s", scanf_str, _checkmark(scanf_str) == 0);
     double physical_mark = 0;
     sscanf(scanf_str, "%lf", &physical_mark);
-    sv.set_Mark_Physical(physical_mark);
+    sv.setMarkPhysical(physical_mark);
 
-    ENTER_INFORMATION("NHAP DIEM HOA: ","%s", scanf_str, _Check_Mark(scanf_str) == 0);
+    ENTER_INFORMATION("NHAP DIEM HOA: ","%s", scanf_str, _checkmark(scanf_str) == 0);
     double chemical_mark = 0;
     sscanf(scanf_str, "%lf", &chemical_mark);
-    sv.set_Mark_Chemical(chemical_mark);
+    sv.setMarkChemical(chemical_mark);
 
     Menu::_num_student++;
     sv.setID(Menu::_num_student); //SET ID
@@ -266,9 +474,18 @@ void Menu::Add_Student(){
     printf("THEM SINH VIEN THANH CONG\n\n");
     // free(scanf_str);
     }
-
 }
-void Menu::Update_Student_By_ID(){
+
+/*
+* Class: Menu
+* Function: updateStudentByID
+* Description: This function use for adding student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: none
+*/
+void Menu::updateStudentByID(){
     static Student sv;
     uint8_t index = 0; //LUU VI TRI TRUNG VOI _id DUOC NHAP
     uint8_t id = 0; //LUU GIA TRI _id DUOC NHAP
@@ -317,49 +534,49 @@ void Menu::Update_Student_By_ID(){
             printf("NHAP EXIT DE THOAT\n");
 
             ENTER_INFORMATION("NHAP LENH: ", "%s", scanf_str, 0);
-            if(Check_Number(scanf_str) == 1){ //NEU LENH NHAP LA CHU SO
+            if(checkNumber(scanf_str) == 1){ //NEU LENH NHAP LA CHU SO
                 sscanf(scanf_str, "%d", &scanf_command);
                 switch (scanf_command)
                 {
                 case 1: //THAY DOI TEN
 
                     ENTER_INFORMATION("NHAP TEN MOI: ", "%s", scanf_str, 0);
-                    sv.set_Name(scanf_str);
+                    sv.setName(scanf_str);
                     // is_update_done = 1;
                     break;
 
                 case 2: //THAY DOI GIOI TINH
 
-                    ENTER_INFORMATION("NHAP GIOI TINH MOI: ", "%s", scanf_str, _Check_Sex(scanf_str) == 0);
-                    sv.set_Sex(scanf_str);
+                    ENTER_INFORMATION("NHAP GIOI TINH MOI: ", "%s", scanf_str, _checksex(scanf_str) == 0);
+                    sv.setSex(scanf_str);
                     break;
 
                 case 3: //THAY DOI TUOI
 
-                    ENTER_INFORMATION("NHAP TUOI MOI: ","%s", scanf_str, Check_Number(scanf_str) == 0 || atoi(scanf_str) < 0);
+                    ENTER_INFORMATION("NHAP TUOI MOI: ","%s", scanf_str, checkNumber(scanf_str) == 0 || atoi(scanf_str) < 0);
                     sscanf(scanf_str, "%d", &age);
-                    sv.set_Age(age);
+                    sv.setAge(age);
                     break;
 
                 case 4: //THAY DOI DIEM TOAN
 
-                    ENTER_INFORMATION("NHAP DIEM TOAN MOI: ","%s", scanf_str, _Check_Mark(scanf_str) == 0);
+                    ENTER_INFORMATION("NHAP DIEM TOAN MOI: ","%s", scanf_str, _checkmark(scanf_str) == 0);
                     sscanf(scanf_str, "%lf", &math_mark);
-                    sv.set_Mark_Math(math_mark);
+                    sv.setMarkMath(math_mark);
                     break;
                 
                 case 5: //THAY DOI DIEM LY
 
-                    ENTER_INFORMATION("NHAP DIEM LY MOI: ","%s", scanf_str, _Check_Mark(scanf_str) == 0);
+                    ENTER_INFORMATION("NHAP DIEM LY MOI: ","%s", scanf_str, _checkmark(scanf_str) == 0);
                     sscanf(scanf_str, "%lf", &physical_mark);
-                    sv.set_Mark_Physical(physical_mark);
+                    sv.setMarkPhysical(physical_mark);
                     break;
 
                 case 6: //THAY DOI DIEM HOA
 
-                    ENTER_INFORMATION("NHAP DIEM HOA MOI: ","%s", scanf_str, _Check_Mark(scanf_str) == 0);
+                    ENTER_INFORMATION("NHAP DIEM HOA MOI: ","%s", scanf_str, _checkmark(scanf_str) == 0);
                     sscanf(scanf_str, "%lf", &chemical_mark);
-                    sv.set_Mark_Chemical(chemical_mark);
+                    sv.setMarkChemical(chemical_mark);
                     break;
                 
                 case 7: //HOAN THANH CAP NHAT DE LUU VAO DANH SACH
@@ -375,11 +592,19 @@ void Menu::Update_Student_By_ID(){
             }
         }
     }
-    // free(scanf_str);
 
 }
 
-void Menu::Remove_Student(){
+/*
+* Class: Menu
+* Function: removeStudent
+* Description: This function use for adding student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: none
+*/
+void Menu::removeStudent(){
     uint8_t is_have_erased = 0; //BIEN KIEM TRA DA XOA CHUA?
     uint8_t id = 0; //_id CAN XOA
     char scanf_str[50];
@@ -407,7 +632,16 @@ void Menu::Remove_Student(){
     }
 }
 
-void Menu::Search_Student_By_Name(){
+/*
+* Class: Menu
+* Function: searchStudentByName
+* Description: This function use for adding student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: none
+*/
+void Menu::searchStudentByName(){
     uint8_t is_have_name = 0; //DA TIM RA TEN CHUA?
     char scanf_str[50];
     if(_list_student.empty()){ //KIEM TRA DU LIEU DANH SACH SINH VIEN
@@ -418,10 +652,10 @@ void Menu::Search_Student_By_Name(){
 
         ENTER_INFORMATION("NHAP TEN: ", "%s", scanf_str, 0);
         for(int i=0; i<_list_student.size(); i++){ //DUYET DANH SACH DE TIM TEN
-            if(strcmp(_list_student[i].get_Name(), (const char*)scanf_str) == 0){ // NEU CO TEN CAN TIM THI IN THONG TIN SINH VIEN DO RA
+            if(strcmp(_list_student[i].getName(), (const char*)scanf_str) == 0){ // NEU CO TEN CAN TIM THI IN THONG TIN SINH VIEN DO RA
                 printf("ID\t TEN\t\t GIOITINH\t TUOI\t TOAN\t LY\t HOA\t GPA\t HOCLUC\n");
-                printf("%d\t %s\t\t %s\t\t %d\t %.2lf\t %.2lf\t %.2lf\t %.2lf\t %s\n", _list_student[i].getID(), _list_student[i].get_Name(), _list_student[i].get_Sex(), \
-                _list_student[i].get_Age(), _list_student[i].get_Mark_Math(), _list_student[i].get_Mark_Physical(), _list_student[i].get_Mark_Chemical(), _list_student[i].get_Average_Mark(), _list_student[i].get_Student_Ability());
+                printf("%d\t %s\t\t %s\t\t %d\t %.2lf\t %.2lf\t %.2lf\t %.2lf\t %s\n", _list_student[i].getID(), _list_student[i].getName(), _list_student[i].getSex(), \
+                _list_student[i].getAge(), _list_student[i].getMarkMath(), _list_student[i].getMarkPhysical(), _list_student[i].getMarkChemical(), _list_student[i].getAverageMark(), _list_student[i].getStudentAbility());
                 printf("\n");
                 is_have_name = 1; //SET 1 BIEN KIEM TRA CO TEN CHUA
             }
@@ -432,8 +666,16 @@ void Menu::Search_Student_By_Name(){
 
 }
 
-
-void Menu::Sort_List_Student_By_GPA(){
+/*
+* Class: Menu
+* Function: sortListStudentByGPA
+* Description: This function use for adding student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: none
+*/
+void Menu::sortListStudentByGPA(){
     if(_list_student.empty()){ //KIEM TRA DANH SACH SINH VIEN
         printf("KHONG CO DU LIEU TRONG DANH SACH\n\n");
         return;
@@ -444,7 +686,7 @@ void Menu::Sort_List_Student_By_GPA(){
     Student sv;
     for(int i=0; i<list_student_sortbyid.size() - 1; i++){ //DUYET DANH SACH PHU TU 0 TOI SIZE - 1
         for(int j=i+1; j<list_student_sortbyid.size(); j++){ //DUYET DANH SACH TU VI TRI HIEN TAI + 1 TOI CUOI DANH SACH. MUC DICH DE TIM GIA TRI NHO NHAT TAI TUNG VI TRI
-            if(list_student_sortbyid[i].get_Average_Mark() > list_student_sortbyid[j].get_Average_Mark()){ 
+            if(list_student_sortbyid[i].getAverageMark() > list_student_sortbyid[j].getAverageMark()){ 
                 sv = list_student_sortbyid[i];
                 list_student_sortbyid[i] = list_student_sortbyid[j];
                 list_student_sortbyid[j] = sv;
@@ -457,8 +699,16 @@ void Menu::Sort_List_Student_By_GPA(){
 
 }
 
-
-void Menu::Sort_List_Student_By_Name(){
+/*
+* Class: Menu
+* Function: sortListStudentByName
+* Description: This function use for adding student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: none
+*/
+void Menu::sortListStudentByName(){
     if(_list_student.empty()){ //KIEM TRA DU LIEU DANH SACH
         printf("KHONG CO DU LIEU TRONG DANH SACH\n\n");
         return;
@@ -469,7 +719,7 @@ void Menu::Sort_List_Student_By_Name(){
     Student sv;
     for(int i=0; i<list_student_sortbyName.size() - 1; i++){ //DUYET DANH SACH TU DAU TOI SIZE - 1
         for(int j=i+1; j<list_student_sortbyName.size(); j++){ //DUYET DANH SACH TU VI TRI HIEN TAI + 1 TOI CUOI DANH SACH
-            if(strcmp(list_student_sortbyName[i].get_Name(), list_student_sortbyName[j].get_Name()) > 0){
+            if(strcmp(list_student_sortbyName[i].getName(), list_student_sortbyName[j].getName()) > 0){
                 sv = list_student_sortbyName[i];
                 list_student_sortbyName[i] = list_student_sortbyName[j];
                 list_student_sortbyName[j] = sv;
@@ -481,9 +731,16 @@ void Menu::Sort_List_Student_By_Name(){
     SHOW_INFORMATION(index, list_student_sortbyName);
 }
 
-
-
-void Menu::Show_List_Student(){
+/*
+* Class: Menu
+* Function: showListStudent
+* Description: This function use for adding student
+* Input:
+*   Dont have input parameters
+* Output:
+*   return: none
+*/
+void Menu::showListStudent(){
     SHOW_INFORMATION(index, _list_student);
 }
 
@@ -494,41 +751,40 @@ int main(int argc, char const *argv[])
     char scanf_str[20];
     uint8_t scanf_command = 0;
     while(1){
-        // char *scanf_str = (char*)malloc(50 * sizeof(char));
-        mn.Show_List_Command();
+        mn.showListCommand();
         printf("\nMOI NHAP LENH: ");
         scanf("%s", scanf_str);
-        if(mn.Check_Exit(scanf_str) == 1) break;
-        if(mn.Check_Number(scanf_str) == 1){
+        if(mn.checkExit(scanf_str) == 1) break;
+        if(mn.checkNumber(scanf_str) == 1){
             sscanf(scanf_str, "%d", &scanf_command);
             uint8_t _id = 0;
             switch (scanf_command)
             {
             case 1:
-                mn.Add_Student();
+                mn.addStudent();
                 break;
             case 2:
-                mn.Update_Student_By_ID();
+                mn.updateStudentByID();
                 break;
 
             case 3:
-                mn.Remove_Student();
+                mn.removeStudent();
                 break;
             
             case 4: 
-                mn.Search_Student_By_Name();
+                mn.searchStudentByName();
                 break;
             
             case 5:
-                mn.Sort_List_Student_By_GPA();
+                mn.sortListStudentByGPA();
                 break;
 
             case 6: 
-                mn.Sort_List_Student_By_Name();
+                mn.sortListStudentByName();
                 break;
 
             case 7:
-                mn.Show_List_Student();
+                mn.showListStudent();
                 break;
 
             

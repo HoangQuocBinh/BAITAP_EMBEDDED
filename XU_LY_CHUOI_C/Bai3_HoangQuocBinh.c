@@ -1,3 +1,10 @@
+/*
+* File: Bai3_HoangQuocBinh.c
+* Author: HOANG QUOC BINH
+* Date: 06/03/2023
+* Description: This is file for string handling
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9,6 +16,15 @@ char arr[] = "The Grammy award-winning  singer. \" \"who has been less active on
 //Cau 4: Chuyen doi tat ca doan van thanh chu hoa
 
 /*****************************HÀM TÍNH ĐỘ DÀI CHUỖI************************************/
+
+/*
+* Function: length
+* Description: This function use for get length of string
+* Input:
+*   str - input string
+* Output:
+*   return: length of string
+*/
 int length(char *str){
     int len = 0; //BIẾN TRẢ VỀ ĐỘ DÀI CHUỖI
     int i=0; // BIẾN DÙNG ĐỂ DUYỆT TỪNG KÍ TỰ TRONG CHUỖI
@@ -20,7 +36,16 @@ int length(char *str){
 }
 
 /***************************HÀM ĐÀO NGƯỢC CHUỖI*********************************/
-void reverse_string(char *str){
+
+/*
+* Function: reverseString
+* Description: This function use for reversing string
+* Input:
+*   str - input string
+* Output:
+*   return: none
+*/
+void reverseString(char *str){
     int len = length(str); //BIẾN LƯU ĐỘ DÀI CHUỖI
     char *sub_str = (char*)malloc((len+1) * sizeof(char)); //CẤP PHÁT MỘT MẢNG ĐỂ LƯU CHUỐI ĐẢO NGƯỢC.
     sub_str[len] = '\0'; //GIÁ TRỊ CUỐI CỦA CHUỖI LÀ \0
@@ -52,7 +77,16 @@ void reverse_string(char *str){
 }
 
 /****************HÀM VIẾT HOA CHỮ CÁI ĐẦU TIÊN SAU DẤU CHẤM******************/
-void UpcaseAfterDot(char *str){
+
+/*
+* Function: upcaseAfterDot
+* Description: This function use for updating upcase first character after dot
+* Input:
+*   str - input string
+* Output:
+*   return: none
+*/
+void upcaseAfterDot(char *str){
 
     int dot =0; //KIỂM TRA XEM CÓ DẤU CHẤM KHÔNG?
     int len = length(str); // ĐỘ DÀI CỦA CHUỖI
@@ -80,7 +114,16 @@ void UpcaseAfterDot(char *str){
 
 
 /******************HÀM CHUYỂN ĐỔI TẤT CẢ KÍ TỰ THÀNH IN HOA*******************/
-void Upcase(char *str){
+
+/*
+* Function: upcase
+* Description: This function use for updating upcase string
+* Input:
+*   str - input string
+* Output:
+*   return: none
+*/
+void upcase(char *str){
     int len = length(str); //ĐỘ DÀI CHUỖI
     char *sub_str = (char*)malloc((len+1) * sizeof(char)); // MẢNG LƯU CHUỖI SAU BIẾN ĐỔI
     sub_str[len] = '\0'; //KẾT THÚC CHUỖI BẰNG KÍ TỰ \0
@@ -95,7 +138,16 @@ void Upcase(char *str){
 }
 
 /*******************HÀM CHUYỂN ĐỔI TẤT CẢ KÍ TỰ THÀNH KÍ TỰ THƯỜNG******************/
-void Lowcase(char *str){
+
+/*
+* Function: lowcase
+* Description: This function use for updating lowcase string
+* Input:
+*   str - input string
+* Output:
+*   return: none
+*/
+void lowcase(char *str){
     int len = length(str); //ĐỘ DÀI CHUỖI
     char *sub_str = (char*)malloc((len+1) * sizeof(char)); //MẢNG LƯU CHUỖI SAU KHI BIẾN ĐỔI
     sub_str[len] = '\0'; //KẾT THÚC CHUỖI BẰNG KÍ TỰ \0
@@ -115,16 +167,16 @@ int main(int argc, char const *argv[])
     printf("\nCHUOI BAN DAU: %s\n\n", arr);
 
     //IN CHUỖI ĐẢO NGƯỢC
-    reverse_string(arr);
+    reverseString(arr);
 
     //IN CHUỐI IN HOA SAU DẤU CHẤM
-    UpcaseAfterDot(arr);
+    upcaseAfterDot(arr);
 
     //IN CHUỖI KÍ TỰ VIẾT THƯỜNG
-    Lowcase(arr);
+    lowcase(arr);
 
     //IN CHUỖI KÍ TỰ VIẾT HOA
-    Upcase(arr);  
+    upcase(arr);  
 
     return 0;
 }

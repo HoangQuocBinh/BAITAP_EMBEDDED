@@ -1,9 +1,15 @@
+/*
+* File: Bai1_HoangQuocBinh.c
+* Author: HOANG QUOC BINH
+* Date: 06/03/2023
+* Description: This is file for array handling
+*/
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <time.h>
 
-/*------------Hoang Quoc Binh-----------------*/
 
 //mang bat ky vd arr[] = {1, 7, 8, 2, 3, 8, 3, 7, 6, 7, 8, 8, 2}
 // sap xep mang theo thu tu tang dan
@@ -12,15 +18,34 @@
 //                                             8 xuat hien 3 lan
 
 /****************KHAI BÁO TRUCT MẢNG VÀ GÁN GIÁ TRỊ SIZE VÀ GIÁ TRỊ TỪNG Ô NHỚ CỦA MẢNG***************/
+
 typedef struct{
     uint8_t size;
     uint8_t *firstAdd;
 }typeArray;
 
+/*
+* Function: randomA
+* Description: This function use for random number
+* Input:
+*   minN - number min of range random
+*   maxN - number max of range random
+* Output:
+*   return: number
+*/
 int randomA(int minN, int maxN){
  return minN + rand() % (maxN + 1 - minN);
 }
 
+/*
+* Function: randomArray
+* Description: This function use for random array
+* Input:
+*   value - input array
+*   length - length of array
+* Output:
+*   return: none
+*/
 void randomArray(typeArray *value, uint8_t length){
     srand((int)time(0));
 
@@ -34,6 +59,15 @@ void randomArray(typeArray *value, uint8_t length){
 }
 
 /************************SẮP XẾP MẢNG***********************/
+
+/*
+* Function: sortArray
+* Description: This function use for sort Array
+* Input:
+*   a - input array
+* Output:
+*   return: none
+*/
 void sortArray(typeArray *a){ // 1 8 8 8 9
     //Ý TƯỞNG LÀ DUYỆT MẢNG ĐỂ TÌM GIÁ TRỊ NHỎ NHẤT Ở TỪNG VỊ TRÍ
 
@@ -50,6 +84,15 @@ void sortArray(typeArray *a){ // 1 8 8 8 9
 }
 
 /****************************HÀM ĐẾM SỐ LẦN XUẤT HIỆN TRONG MẢNG*************************/
+
+/*
+* Function: countArray
+* Description: This function use for count Array use for array have been sorted
+* Input:
+*   a - input array
+* Output:
+*   return: none
+*/
 void countArray(typeArray a){ 
     //HÀM NÀY ĐƯỢC SỬ DỤNG KHI MỘT MẢNG ĐÃ ĐƯỢC SẮP XẾP
 
@@ -66,6 +109,15 @@ void countArray(typeArray a){
 }
 
 /****************************HÀM ĐẾM SỐ LẦN XUẤT HIỆN TRONG MẢNG*************************/
+
+/*
+* Function: countArray
+* Description: This function use for count Array use for array have been sorted or not
+* Input:
+*   a - input array
+* Output:
+*   return: none
+*/
 void countArray2(typeArray a){ 
     //HÀM SỬ DỤNG CHO CẢ MẢNG CHƯA SẮP XẾP VÀ MẢNG SẮP XẾP
 

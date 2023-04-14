@@ -36,38 +36,38 @@ uint8_t is_master_read_done = 0;
 uint32_t ui32_timeout_sendread_data = 0; //TIME OUT GIAO TIEP I2C
 uint32_t ui32_timeout_master_read_send_data = 0; //TIME
 
-#define READ_ACK(pin)										              \
-  pinMode(pin, INPUT);									              \
-  timeout = millis() + 100;							              \
-  while(digitalRead(pin) == HIGH){			              \
-    if(timeout <= millis()){						              \
-      Serial.println("KHONG GIAO TIEP DUOC I2C");	    \
-      return;											                    \
-    }													                        \
+#define READ_ACK(pin)\
+  pinMode(pin, INPUT);\
+  timeout = millis() + 100;\
+  while(digitalRead(pin) == HIGH){\
+    if(timeout <= millis()){\
+      Serial.println("KHONG GIAO TIEP DUOC I2C");\
+      return;\
+    }\
   }
 
-#define READ_ACK_NOT_VOID(pin)										    \
-  pinMode(pin, INPUT);									              \
-  timeout = millis() + 100;								            \
-  while(digitalRead(pin) == HIGH){						        \
-    if(timeout <= millis()){							            \
-      Serial.println("KHONG GIAO TIEP DUOC I2C");	    \
-      return 0;											                  \
-    }													                        \
+#define READ_ACK_NOT_VOID(pin)\
+  pinMode(pin, INPUT);\
+  timeout = millis() + 100;\
+  while(digitalRead(pin) == HIGH){\
+    if(timeout <= millis()){\
+      Serial.println("KHONG GIAO TIEP DUOC I2C");\
+      return 0;\
+    }\
   }
 
-#define SEND_DATA(pin, data)											                  \
-  for(int i=0; i<8; i++){												                    \
-    digitalWrite(SDA_Master, ((data >> (7-i))&0x01) ? HIGH : LOW);	\
-    Clock();														                            \
+#define SEND_DATA(pin, data)\
+  for(int i=0; i<8; i++){\
+    digitalWrite(SDA_Master, ((data >> (7-i))&0x01) ? HIGH : LOW);\
+    Clock();\
   }
 
-#define READ_DATA(pin)				      \
-  uint8_t data = 0x00;			        \
-  for(int i=0; i<8; i++){			      \
-    data <<= 1;					            \
-    data |= digitalRead(pin);	      \
-    Clock();					              \
+#define READ_DATA(pin)\
+  uint8_t data = 0x00;\
+  for(int i=0; i<8; i++){\
+    data <<= 1;\
+    data |= digitalRead(pin);\
+    Clock();\
   }
 enum Read_Write {
   WRITE = 0,

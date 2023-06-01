@@ -1,3 +1,5 @@
+//TEST
+
 /*
 * File: bai4_hoangquocbinh.cpp
 * Author: HOANG QUOC BINH
@@ -438,8 +440,6 @@ void Menu::addStudent(){
     char scanf_str[50];
     while (1)
     {
-        /* code */
-    // char *scanf_str = (char*)malloc(50 * sizeof(char));
     
     printf("\nTHEM SINH VIEN \t NHAP \"EXIT\" DE THOAT\n");
     ENTER_INFORMATION("NHAP TEN: ", "%s", scanf_str, 0);
@@ -472,7 +472,7 @@ void Menu::addStudent(){
     sv.setID(Menu::_num_student); //SET ID
     Menu::_list_student.push_back(sv); //THEM SINH VIEN VAO DANH SACH
     printf("THEM SINH VIEN THANH CONG\n\n");
-    // free(scanf_str);
+
     }
 }
 
@@ -491,9 +491,7 @@ void Menu::updateStudentByID(){
     uint8_t id = 0; //LUU GIA TRI _id DUOC NHAP
     uint8_t is_rightID = 0; //GIA TRI ID DUOC NHAP CO DUNG KHONG?
     uint8_t scanf_command = 0; //LUU GIA TRI LENH NHAP
-    // uint8_t is_update_done = 0; //
     char scanf_str[50];
-    // char* scanf_str = (char*)malloc(50 * sizeof(char));
     int age = 0;
     double math_mark = 0;
     double chemical_mark = 0;
